@@ -1,3 +1,7 @@
 .search-box{
-    background-color: aliceblue;
+    width: 50%;
+}
+
+.search{
+    margin: 1rem;
 }
