@@ -1,6 +1,6 @@
 .search{
     margin: 1rem;
-    height: 3vw;
+    height: 4vw;
 }
 
 .search-box{
@@ -28,7 +28,7 @@
     box-shadow: 1% beige;
     background-color: beige;
     width: 25%;
-    padding: 1%;
+    padding: 2%;
 }   
 
 .result-dates{
@@ -40,4 +40,20 @@
     flex-wrap: wrap;
     margin: auto;
     justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .result-box{
+        width: 80%;
+        padding: 6%;
+    }
+    .search{
+        height: 10vw;
+    }
+    .search-box{
+        height: 4vw;
+    }
+    .search-button{
+        height: 4vw;
+    }
 }
