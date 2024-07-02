@@ -6,6 +6,7 @@ import config from '../config';
 function SearchBar(){
     const [searchString, setSearchString] = useState('');
     const [results, setResults] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         setSearchString(e.target.value);
@@ -16,6 +17,7 @@ function SearchBar(){
         searchUtil();
     }
     const searchUtil = async () => {
+        setLoading(true);
         try {
             const apiKey = config.apiKey;
             const response = await axios.get(`https://api.api-ninjas.com/v1/historicalevents?text=${searchString}`, {
@@ -27,6 +29,8 @@ function SearchBar(){
             console.log(response)
         } catch (error){
             console.error('Error getting search results: ', error);
+        } finally {
+            setLoading(false);
         }
     }
     const getMonthName = (monthNumber) => {
@@ -55,7 +59,11 @@ function SearchBar(){
                     <button type="submit" className='search-button'>🔍</button>
                 </form>
             </div>
-            {results.length > 0 && <div >
+            {loading && (
+                <h2 className='loading'>Loading...</h2>
+            )}
+            {results.length > 0 && !loading &&
+            (<div >
                 <h2 className='result-header'>Results</h2>
                 <div className='results-box'>
                     {results.map((result, index) => (
@@ -65,7 +73,7 @@ function SearchBar(){
                         </div>
                     ))}
                 </div>
-            </div>}
+            </div>)}
         </div>
     )
 }

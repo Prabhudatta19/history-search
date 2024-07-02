@@ -20,6 +20,14 @@
     padding-top: 2%;
 }
 
+.no-result{
+    color: red;
+}
+
+.loading{
+    color: blue;
+}
+
 .result-box{
     border: 0.2% solid beige;
     border-radius: 10px;
