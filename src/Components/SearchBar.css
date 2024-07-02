@@ -16,7 +16,7 @@
 }
 
 .result-header{
-    color: darkgreen;
+    color: rgb(3, 118, 40);
     padding-top: 2%;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .loading{
-    color: blue;
+    color: rgb(55, 92, 130);
 }
 
 .result-box{
@@ -36,6 +36,7 @@
     background-color: beige;
     width: 25%;
     padding: 2%;
+    color: rgb(32, 35, 35);
 }   
 
 .result-dates{
