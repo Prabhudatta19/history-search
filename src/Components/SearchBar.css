@@ -1,7 +1,38 @@
-.search-box{
-    width: 50%;
-}
-
 .search{
     margin: 1rem;
+    height: 7vh;
+}
+
+.search-box{
+    width: 50%;
+    height: 4vh;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+.search-button{
+    border-radius: 10px;
+    height: 6vh;
+    background-color: transparent;
+}
+
+.result-header{
+    color: darkgreen;
+    padding-top: 2%;
+}
+
+.result-box{
+    border: 1px solid beige;
+    border-radius: 10px;
+    margin: 2%;
+    box-shadow: 1% beige;
+    background-color: beige;
+}   
+
+.result-dates{
+    color: rgb(13, 14, 14);
+}
+
+.results-box{
+    /* display: flex; */
 }

@@ -29,6 +29,18 @@ function SearchBar(){
             console.error('Error getting search results: ', error);
         }
     }
+    const getMonthName = (monthNumber) => {
+        const monthNames = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        if(monthNumber > 0 && monthNumber < 13){
+            return monthNames[monthNumber];
+        }
+        else return "Invalid month";
+    }
+    const handleYear = (year) => {
+        if(year < 0) return year*-1 + " BC";
+        return year + " AD";
+    }
+
     return (
         <div>
             <div className="search">
@@ -40,18 +52,20 @@ function SearchBar(){
                         onChange={handleInputChange}
                         className='search-box' 
                     />
-                    <button type="submit">Search</button>
+                    <button type="submit" className='search-button'>🔍</button>
                 </form>
-                
             </div>
-            <div>
-                {results.map((result, index) => (
-                    <div key={index}>
-                        <h3>Year: {result.year}, Day: {result.day},  Month: {result.month} </h3>
-                        <p>{result.event}</p>
-                    </div>
-                ))}
-            </div>
+            {results.length > 0 && <div >
+                <h2 className='result-header'>Results</h2>
+                <div className='results-box'>
+                    {results.map((result, index) => (
+                        <div key={index} className='result-box'>
+                            <h4><span className='result-dates'>{result.day}</span>{' '}<span className='result-dates'>{getMonthName(parseInt(result.month))}</span>{' '}<span className='result-dates'>{handleYear(parseInt(result.year))}</span></h4>
+                            <p>{result.event}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>}
         </div>
     )
 }
