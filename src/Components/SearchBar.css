@@ -1,18 +1,18 @@
 .search{
     margin: 1rem;
-    height: 7vh;
+    height: 3vw;
 }
 
 .search-box{
     width: 50%;
-    height: 4vh;
+    height: 2vw;
     border-radius: 10px;
-    padding: 0 5px;
+    padding: 0 1%;
 }
 
 .search-button{
     border-radius: 10px;
-    height: 6vh;
+    height: 2vw;
     background-color: transparent;
 }
 
@@ -22,11 +22,13 @@
 }
 
 .result-box{
-    border: 1px solid beige;
+    border: 0.2% solid beige;
     border-radius: 10px;
     margin: 2%;
     box-shadow: 1% beige;
     background-color: beige;
+    width: 25%;
+    padding: 1%;
 }   
 
 .result-dates{
@@ -34,5 +36,8 @@
 }
 
 .results-box{
-    /* display: flex; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-around;
 }
