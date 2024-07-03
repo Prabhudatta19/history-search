@@ -1,0 +1,39 @@
+header{
+    background-color: antiquewhite;
+    width: 100vw;
+    height: 4vw;
+    display: flex;
+}
+
+.brand-logo {
+    height: 3vw;
+    padding: 0.5vw 2vw;
+    will-change: filter;
+    transition: filter 300ms;
+    
+}
+
+.brand-logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.brand-logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.brand-name{
+    height: 3vw;
+    padding: 0.5vw 4vw 0.5vw 0;
+    font-size: 2vw;
+    color: darkslategray;
+    font-weight: 1000;
+    /* font-family: monospace; */
+}
+
+.nav-item{
+    height: 3vw;
+    padding: 0.7vw 1vw;
+    font-size: 1.6svw;
+    font-weight: 500;
+    align-content: center;
+}
