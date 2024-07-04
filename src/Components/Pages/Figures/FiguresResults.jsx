@@ -1,10 +1,10 @@
 
 
-const FiguresResults = ({loading, figuresResults}) => {
+const FiguresResults = ({isloading, figuresResults}) => {
   return (
     <>
-      {loading && <h2 className="loading">Loading...</h2>}
-        {figuresResults.length > 0 && !loading && (
+      {isloading && <h2 className="loading">Loading...</h2>}
+        {figuresResults.length > 0 && !isloading && (
           <div>
             <h2 className="result-header">Results</h2>
             <div className="results-box">

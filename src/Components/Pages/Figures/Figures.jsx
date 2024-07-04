@@ -24,7 +24,10 @@ const Figures = () => {
       setResults(response.data);
       console.log(response);
     } catch (e) {
-      console.error("Error getting search results: ", e);    }
+      console.error("Error getting search results: ", e);    
+    } finally {
+      setLoading(false)
+    }
   }
   return (
     <>
