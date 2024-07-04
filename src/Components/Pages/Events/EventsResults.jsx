@@ -1,4 +1,4 @@
-function EventsResults({ isloading, results }) {
+function EventsResults({ isloading, eventResults }) {
   const getMonthName = (monthNumber) => {
     const monthNames = [
       "",
@@ -27,11 +27,11 @@ function EventsResults({ isloading, results }) {
   return (
     <>
       {isloading && <h2 className="loading">Loading...</h2>}
-      {results.length > 0 && !isloading && (
+      {eventResults.length > 0 && !isloading && (
         <div>
           <h2 className="result-header">Results</h2>
           <div className="results-box">
-            {results.map((result, index) => (
+            {eventResults.map((result, index) => (
               <div key={index} className="result-box">
                 <h4>
                   <span className="result-dates">{result.day}</span>{" "}
