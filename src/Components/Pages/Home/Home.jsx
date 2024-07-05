@@ -1,7 +1,6 @@
 import PreSearchBrand from "../../Common/PreSearchBrand";
 import SearchBar from "../../Common/SearchBar";
 import EventsResults from "../Events/EventsResults";
-import config from "../../../config";
 import axios from "axios";
 import { useState } from "react";
 import FiguresResults from "../Figures/FiguresResults";
@@ -10,11 +9,13 @@ function Home(){
     const [eventResults, setEventResults] = useState([]);
     const [figuresResults, setFiguresResults] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [isAnyResult, setIsAnyResult] = useState(false);
+
 
     const handleEventsSearch = async (searchString) => {
         setLoading(true);
         try {
-        const apiKey = config.apiKey;
+        const apiKey = import.meta.env.apiKey;
         const response = await axios.get(
             `https://api.api-ninjas.com/v1/historicalevents?text=${searchString}`,
             {
@@ -24,6 +25,7 @@ function Home(){
             }
         );
         setEventResults(response.data);
+        setIsAnyResult(true)
         console.log(response);
         } catch (error) {
         console.error("Error getting search results: ", error);
@@ -39,6 +41,7 @@ function Home(){
               }
             );
             setFiguresResults(response.data);
+            setIsAnyResult(true);
             console.log(response);
           } catch (e) {
             console.error("Error getting search results: ", e);    
@@ -48,10 +51,10 @@ function Home(){
     };
     return (
         <>
-            <PreSearchBrand title={"All History"}/>
+            {!isAnyResult && <PreSearchBrand title={"All History"}/>}
             <SearchBar type={"all"} onSearch={handleEventsSearch}/>
-            <EventsResults isloading={loading} eventResults={eventResults}/>
-            <FiguresResults isloading={loading} figuresResults={figuresResults}/>
+            <EventsResults isAnyResult={isAnyResult} isloading={loading} eventResults={eventResults}/>
+            <FiguresResults isAnyResult={isAnyResult} isloading={loading} figuresResults={figuresResults}/>
         </>
     )
 }

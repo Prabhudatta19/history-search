@@ -2,17 +2,17 @@ import { useState } from "react";
 import PreSearchBrand from "../../Common/PreSearchBrand";
 import SearchBar from "../../Common/SearchBar";
 import EventsResults from "./EventsResults";
-import config from "../../../config";
 import axios from "axios";
 
 const Events = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isAnyResult, setIsAnyResult] = useState(false);
 
   const handleEventsSearch = async (searchString) => {
     setLoading(true);
     try {
-      const apiKey = config.apiKey;
+      const apiKey = import.meta.env.apiKey;
       const response = await axios.get(
         `https://api.api-ninjas.com/v1/historicalevents?text=${searchString}`,
         {
@@ -22,6 +22,7 @@ const Events = () => {
         }
       );
       setResults(response.data);
+      setIsAnyResult(true);
       console.log(response);
     } catch (error) {
       console.error("Error getting search results: ", error);
@@ -32,9 +33,9 @@ const Events = () => {
 
   return (
     <>
-      <PreSearchBrand title={"Historical Events"} />
+      {!isAnyResult && <PreSearchBrand title={"Historical Events"} />}
       <SearchBar type={"events"} onSearch={handleEventsSearch} />
-      <EventsResults isLoading={loading} results={results}/>
+      <EventsResults isAnyResult={isAnyResult} isLoading={loading} eventResults={results}/>
     </>
   );
 };

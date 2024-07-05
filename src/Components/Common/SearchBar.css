@@ -15,41 +15,6 @@
     background-color: transparent;
 }
 
-.result-header{
-    color: rgb(3, 118, 40);
-    padding-top: 2%;
-}
-
-.no-result{
-    color: red;
-}
-
-.loading{
-    color: rgb(55, 92, 130);
-}
-
-.result-box{
-    border: 0.2% solid beige;
-    border-radius: 10px;
-    margin: 2%;
-    box-shadow: 1% beige;
-    background-color: beige;
-    width: 25%;
-    padding: 2%;
-    color: rgb(32, 35, 35);
-}   
-
-.result-dates{
-    color: rgb(13, 14, 14);
-}
-
-.results-box{
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    justify-content: space-around;
-}
-
 @media (max-width: 768px) {
     .result-box{
         width: 80%;

@@ -1,6 +1,5 @@
 import SearchBar from "../../Common/SearchBar";
 import PreSearchBrand from "../../Common/PreSearchBrand";
-import config from "../../../config";
 import axios from "axios";
 import FiguresResults from "./FiguresResults";
 import { useState } from "react";
@@ -8,11 +7,13 @@ import { useState } from "react";
 const Figures = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isAnyResult, setIsAnyResult] = useState(false);
+
   
   const handleFiguresSearch = async (searchString) => {
     setLoading(true);
     try{
-      const apiKey = config.apiKey;
+      const apiKey = import.meta.env.apiKey;
       const response = await axios.get(
         `https://api.api-ninjas.com/v1/historicalfigures?name=${searchString}`,
         {
@@ -22,6 +23,7 @@ const Figures = () => {
         }
       );
       setResults(response.data);
+      setIsAnyResult(true);
       console.log(response);
     } catch (e) {
       console.error("Error getting search results: ", e);    
@@ -31,9 +33,9 @@ const Figures = () => {
   }
   return (
     <>
-      <PreSearchBrand title={"Historical Figures"}/>
+      {!isAnyResult && <PreSearchBrand title={"Historical Figures"}/>}
       <SearchBar type={"figures"} onSearch={handleFiguresSearch}/>
-      <FiguresResults isloading={loading} figuresResults={results}/>
+      <FiguresResults isAnyResult={isAnyResult} isloading={loading} figuresResults={results}/>
     </>
   )
 }

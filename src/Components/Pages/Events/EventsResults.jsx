@@ -1,4 +1,7 @@
-function EventsResults({ isloading, eventResults }) {
+import './EventsResults.css'
+import './../../Common/Common.css'
+
+function EventsResults({ isAnyResult, isLoading, eventResults }) {
   const getMonthName = (monthNumber) => {
     const monthNames = [
       "",
@@ -26,10 +29,10 @@ function EventsResults({ isloading, eventResults }) {
 
   return (
     <>
-      {isloading && <h2 className="loading">Loading...</h2>}
-      {eventResults.length > 0 && !isloading && (
+      {isLoading && <h2 className="loading">Loading...</h2>}
+      {isAnyResult && eventResults.length > 0 && !isLoading && (
         <div>
-          <h2 className="result-header">Results</h2>
+          <h2 className="result-header">Historical Events</h2>
           <div className="results-box">
             {eventResults.map((result, index) => (
               <div key={index} className="result-box">
