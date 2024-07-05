@@ -31,7 +31,7 @@ function Home(){
         console.error("Error getting search results: ", error);
         } 
         try{
-            const apiKey = config.apiKey;
+            const apiKey = import.meta.env.apiKey;
             const response = await axios.get(
               `https://api.api-ninjas.com/v1/historicalfigures?name=${searchString}`,
               {
