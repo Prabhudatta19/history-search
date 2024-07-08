@@ -15,7 +15,7 @@ function Home(){
     const handleEventsSearch = async (searchString) => {
         setLoading(true);
         try {
-        const apiKey = import.meta.env.VITE_apiKey;
+        const apiKey = import.meta.env.VITE_API_KEY;
         const response = await axios.get(
             `https://api.api-ninjas.com/v1/historicalevents?text=${searchString}`,
             {
@@ -31,7 +31,7 @@ function Home(){
         console.error("Error getting search results: ", error);
         } 
         try{
-            const apiKey = import.meta.env.VITE_apiKey;
+            const apiKey = import.meta.env.VITE_API_KEY;
             const response = await axios.get(
               `https://api.api-ninjas.com/v1/historicalfigures?name=${searchString}`,
               {
