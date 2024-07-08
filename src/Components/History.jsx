@@ -10,9 +10,9 @@ const History = () => {
         <Router>
             <NavBar/>
             <Routes>
-                <Route path="/history-search" element={<Home />}/>
-                <Route path="/history-search/events" element={<Events />}/>
-                <Route path="/history-search/figures" element={<Figures />}/>
+                <Route path="/" element={<Home />}/>
+                <Route path="/events" element={<Events />}/>
+                <Route path="/figures" element={<Figures />}/>
             </Routes>
         </Router>
     </>
