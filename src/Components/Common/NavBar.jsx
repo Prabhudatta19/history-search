@@ -7,14 +7,14 @@ function NavBar(){
         <>
             <nav>
                 <ul>
-                    <li><Link className="brand-box" to="/history-search">
+                    <li><Link className="brand-box" to="/">
                         <img src={logo} className="brand-logo react" alt="Brand logo" />
                         <div className="brand-name">History</div>
                     </Link></li>
-                    <li><Link to="/history-search/events">
+                    <li><Link to="/events">
                         <div className="nav-item">Events</div>
                     </Link></li>
-                    <li><Link to="/history-search/figures">
+                    <li><Link to="/figures">
                         <div className="nav-item">Figures</div>
                     </Link></li>
                 </ul>
