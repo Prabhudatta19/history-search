@@ -13,6 +13,8 @@ const Events = () => {
     setLoading(true);
     try {
       const apiKey = import.meta.env.VITE_apiKey;
+      console.log(import.meta.env)
+      console.log(import.meta.env.VITE_apiKey)
       const response = await axios.get(
         `https://api.api-ninjas.com/v1/historicalevents?text=${searchString}`,
         {
