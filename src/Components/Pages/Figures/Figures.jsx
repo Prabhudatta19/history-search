@@ -13,7 +13,7 @@ const Figures = () => {
   const handleFiguresSearch = async (searchString) => {
     setLoading(true);
     try{
-      const apiKey = import.meta.env.apiKey;
+      const apiKey = import.meta.env.VITE_apiKey;
       const response = await axios.get(
         `https://api.api-ninjas.com/v1/historicalfigures?name=${searchString}`,
         {
