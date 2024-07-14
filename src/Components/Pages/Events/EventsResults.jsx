@@ -29,7 +29,7 @@ function EventsResults({ isAnyResult, isLoading, eventResults }) {
 
   return (
     <>
-      {isLoading && <h2 className="loading">Loading...</h2>}
+      {isLoading && <h2 className="loading"> Loading...</h2>}
       {isAnyResult && eventResults.length > 0 && !isLoading && (
         <div>
           <h2 className="result-header">Historical Events</h2>
